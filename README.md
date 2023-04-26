@@ -10,6 +10,7 @@ The following section contains code pertaining to what messages will be sent ove
 
 ### First Token
 0 - Everything is nomimal, a radio transmission is attached to this message 
+
 1 - No radio transmission, exact error specified below
 
 ### Rest of Message - Nominal
@@ -67,7 +68,10 @@ These packets plus a space digit total 202 digits (max is 250 or so)
 
 ### Rest of Message - Error
 0 - No radio message recieved
+
 1 - Radio Timeout (in effect the same as no message recieved)
+
 2 - Radio Initialization Failed
+
 3 - Radio Frequency Set Failed
 
