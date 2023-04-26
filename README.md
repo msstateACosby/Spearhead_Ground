@@ -15,28 +15,52 @@ The following section contains code pertaining to what messages will be sent ove
 ### Rest of Message - Nominal
 Following Format Is Used (may undergo revisions) each part is separated by a space in order.
 Packet Number (1 digit) - a looping number from 0-9 to so we can see if miss packets
+
 Gravity_X (8 digits)
+
 Gravity_Y (8 digits)
+
 Gravity_Z (8 digits)
+
 Accel_X (8 digits)
+
 Accel_Y (8 digits)
+
 Accel_Z (8 digits)
+
 Linear_Accel_X (8 digits)
+
 Linear_Accel_Y (8 digits)
+
 Linear_Accel_Z (8 digits)
+
 BMP_Altitude (8 digits)
+
 BMP_Pressure (8 digits)
+
 GPS_Altitute (8 digits)
+
 Pitot_Pressure (8 digits)
+
 Pitot_Velocity (8 digits)
+
 Thermo_Nose_1 (8 digits)
+
 Thermo_Nose_2 (8 digits)
+
 Thermo_Nose_3 (8 digits)
+
 Thermo_Nose_4 (8 digits)
+
 Thermo_Nose_5 (8 digits)
+
 Thermo_Nose_6 (8 digits)
+
 Thermo_Body_1 (8 digits)
+
+
 Thermo_Body_2 (8 digits)
+
 RSSI (2 digits) - Signal Strength, negative, so closer to zero (higher) is better.
 
 These packets plus a space digit total 202 digits (max is 250 or so)
