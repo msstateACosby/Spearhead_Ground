@@ -34,12 +34,12 @@ void setup()
   delay(10);
 
   while (!rf95.init()) {
-    Serial.println();
+    Serial.println("1 2");
   }
 
   // Defaults after init are 434.0MHz, modulation GFSK_Rb250Fd250, +13dbM
   while (!rf95.setFrequency(RF95_FREQ)) {
-    Serial.println();
+    Serial.println("1 3");
   }
   
   // Defaults after init are 434.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
@@ -62,19 +62,19 @@ void loop()
   { 
     // Should be a reply message for us now   
     if (rf95.recv(buf, &len))
-   {
-      
+    {
+      Serial.print("0 ");
       Serial.print((char*)buf);
       Serial.println(" " + String(rf95.lastRssi()));    
-    }
-    else
-    {
-      Serial.println("Receive failed");
-    }
+     }
+     else
+     {
+       Serial.println("1 0");
+     }
   }
   else
   {
-    Serial.println("No reply, is there a listener around?");
+    Serial.println("1 1");
   }
   
 }
