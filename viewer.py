@@ -23,42 +23,30 @@ f = Figure(figsize=(10,5), dpi=100)
 time_series_plot = f.add_subplot(111)
 #heat_plot = f.add_subplot(112)
 
-heat_text_1 = StringVar()
-heat_text_2 = StringVar()
-heat_text_3 = StringVar()
-heat_text_4 = StringVar()
-heat_text_5 = StringVar()
-heat_text_6 = StringVar()
-heat_text_7 = StringVar()
-heat_text_8 = StringVar()
-heat_text_9 = StringVar()
-heat_text_10 = StringVar()
-heat_text_11 = StringVar()
-
-imu_x = StringVar()
-imu_y = StringVar()
-imu_z = StringVar()
-baro_pressure = StringVar()
-gps_lat = StringVar()
-gps_long =  StringVar()
-gps_alt = StringVar()
 
 x_values = []
 y_values = []
+z_values = []
 
 
-        
+     
 
 def animate(i, multiQueue):
+    global x_values, y_values, z_values
     while not multiQueue.empty():
         new_value = multiQueue.get()
-        
+        print(new_value)
         x_values.append(new_value[0])
         y_values.append(new_value[1])
-    
+        z_values.append(new_value[22])
+    if len(x_values) > 50:
+        x_values = x_values[-50:]
+        y_values = y_values[-50:]
+        z_values = z_values[-50:]
 
     time_series_plot.clear()
     time_series_plot.plot(x_values, y_values)
+    time_series_plot.plot(x_values, z_values)
 
     #lines = ((0,1),(1,2),(2,2))
     #lc = LineCollection(lines)
